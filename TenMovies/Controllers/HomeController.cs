@@ -1,32 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+
 using TenMovies.Models;
 
-namespace TenMovies.Controllers
+namespace TenMovies
 {
     public class HomeController : Controller
+
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+       
+        MovieContext db;
+        public HomeController(MovieContext context)
         {
-            _logger = logger;
+            db = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            IEnumerable<Movie> movies = await Task.Run(() => db.Movies);
+            ViewBag.Movies = movies;
+            return View("Index");
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }
