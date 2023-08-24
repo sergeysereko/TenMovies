@@ -1,14 +1,20 @@
-﻿@{
-    ViewData["Title"] = "Top 10 Movies";
+﻿@model IEnumerable<TenMovies.Models.Movie>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="content">
-    <div class="image">Картинка</div>
+@foreach (var item in ViewBag.Movies)
+{
+<div class="movie">
+         
+        <div class="image"><img class="img" src="@Url.Content(@item.Poster)" alt="Картинка Киндзадза"></div>
     <div class="details">
-        <p>Название</p>
-        <p>Режисер</p>
-        <p>Жанр</p>
-        <p>Год</p>
-        <p>Описание</p>
+            <p class="name">@item.Name</p>
+            <p><span class="desc">Режисер: </span>@item.Director</p>
+            <p><span class="desc">Жанр: </span> @item.Genre</p>
+            <p><span class="desc">Год: </span> @item.Year</p>
+            <p><span class="desc">Описание: </span>@item.Description</p>
     </div>
 </div>
+}

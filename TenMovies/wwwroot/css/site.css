@@ -20,27 +20,66 @@ html {
 
 body {
   margin-bottom: 60px;
-  background-color:darkgray;
+  background-color:dimgray;
 }
 .header {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    font-family:'Cascadia Code';
-    color:brown;
-        
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Century Gothic;
+    color: lightgray;
+    font-size: 50px;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px #000;
+    text-stroke: 1px #000;
+    background-color: transparent;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
-.content {
-    display:flex;
-    flex-direction:row;
+.movie {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid darkgray;
+    border-radius: 10px;
+    padding: 30px;
+    width: 100%;
+    background-color: gray;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
+    margin-bottom:15px;
 }
 
 .image {
-    width:200px;
-    height:400px;
-
+    width:300px;
 }
 .details {
-    width:500px;
+    width:100%;
+    padding:10px;
+
+}
+
+.img {
+    width:200px;
+    height:300px;
+    border-radius:5px;
+}
+
+.container {
+    
+    width:100%;
+}
+
+.name {
+    font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+    font-size:24px;
+    font-weight:bold;
+    color:darkred;
+}
+
+.desc {
+    
+    
+    font-weight:bold;
+    color:black;
+    
 }
