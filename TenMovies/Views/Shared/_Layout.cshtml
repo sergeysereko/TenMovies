@@ -9,23 +9,14 @@
     <link rel="stylesheet" href="~/TenMovies.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <div class="menu">
-            <a asp-action="Admin" class="admin">Админка</a>
-        </div>
-       
-        <div>
-            <label class="header">Топ 10 фильмов</label>
-        </div>
-        
-    </header>
+    
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="footer">
         <div class="container">
             &copy; 2023 - TenMovies - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>

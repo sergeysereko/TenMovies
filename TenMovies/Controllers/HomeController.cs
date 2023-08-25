@@ -18,7 +18,14 @@ namespace TenMovies
         {
             IEnumerable<Movie> movies = await Task.Run(() => db.Movies);
             ViewBag.Movies = movies;
-            return View("Index");
+            return View();
+        }
+
+        public async Task<IActionResult> Admin()
+        {
+            IEnumerable<Movie> movies = await Task.Run(() => db.Movies);
+            ViewBag.Movies = movies;
+            return View();
         }
 
     }

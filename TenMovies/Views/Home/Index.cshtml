@@ -3,12 +3,20 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<header>
+    <div class="menu">
+        <a asp-action="Admin" class="admin">Админка</a>
+    </div>
+    <div>
+        <label class="header">Топ 10 фильмов</label>
+    </div>
+</header>
 
 @foreach (var item in ViewBag.Movies)
 {
 <div class="movie">
          
-        <div class="image"><img class="img" src="@Url.Content(@item.Poster)" alt="Картинка Киндзадза"></div>
+        <div class="image"><img class="img" src="@Url.Content(@item.Poster)" alt="@item.Name"></div>
     <div class="details">
             <p class="name">@item.Name</p>
             <p><span class="desc">Режисер: </span>@item.Director</p>
