@@ -83,3 +83,19 @@ body {
     color:black;
     
 }
+
+.admin {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    border-bottom: 1px solid #575859;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+    padding-left:10px;
+}
+.menu {
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-family: Century Gothic;
+}
