@@ -1,0 +1,54 @@
+﻿@model TenMovies.Models.Movie
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+<h4>Movie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        
+        <form asp-action="CreateMovie" asp-controller="Home" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Название</label>
+                <input asp-for="Name" class="form-control" />
+               @*  <span asp-validation-for="Name" class="text-danger"></span> *@
+            </div>
+            <div class="form-group">
+                <label asp-for="Director" class="control-label">Режисер</label>
+                <input asp-for="Director" class="form-control" />
+                @* <span asp-validation-for="Director" class="text-danger"></span> *@
+            </div>
+            <div class="form-group">
+                <label asp-for="Genre" class="control-label">Жанр</label>
+                <input asp-for="Genre" class="form-control" />
+                @* <span asp-validation-for="Genre" class="text-danger"></span> *@
+            </div>
+            <div class="form-group">
+                <label asp-for="Year" class="control-label">Год</label>
+                <input asp-for="Year" class="form-control" />
+                @* <span asp-validation-for="Year" class="text-danger"></span> *@
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Poster" class="control-label">Постер</label>
+                <input type="file" name="Poster" /><br>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Описание</label>
+                <input asp-for="Description" class="form-control" />
+                @*<span asp-validation-for="Description" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Добавить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="links">Вернуться на Главную</a>
+</div>
