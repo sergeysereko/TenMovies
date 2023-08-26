@@ -4,14 +4,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
+<h1>Delete</h1>
 <h4>Movie</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label">Название</label>
                 <input asp-for="Name" class="form-control" />
@@ -40,12 +39,10 @@
             <div class="form-group">
                 <label asp-for="Description" class="control-label">Описание</label>
                 <textarea asp-for="Description" class="form-control"></textarea>
-                @* <input asp-for="Description" class="form-control" /> *@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <br />
             <div class="form-group">
-                <input type="submit" value="Сохранить изменения" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -54,5 +51,4 @@
 <div>
     <a asp-action="Index" class="links">Вернуться на главную</a>
 </div>
-
 
