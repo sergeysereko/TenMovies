@@ -126,8 +126,41 @@ namespace TenMovies
         }
 
 
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null || db.Movies == null)
+            {
+                return NotFound();
+            }
+
+            var movie = await db.Movies.FirstOrDefaultAsync(m => m.Id == id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+
+            return View(movie);
+        }
 
 
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteMovie(int id)
+        {
+            if (db.Movies == null)
+            {
+                return Problem("Entity set 'MovieContext.Movies'  is null.");
+            }
+            var movie = await db.Movies.FindAsync(id);
+            if (movie != null)
+            {
+                db.Movies.Remove(movie);
+            }
+
+            await db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
 
     }
 }
