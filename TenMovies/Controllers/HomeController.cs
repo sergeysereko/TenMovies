@@ -162,5 +162,24 @@ namespace TenMovies
             return RedirectToAction(nameof(Index));
         }
 
+
+        
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null || db.Movies == null)
+            {
+                return NotFound();
+            }
+
+            var movie = await db.Movies.FirstOrDefaultAsync(m => m.Id == id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+
+            return View(movie);
+        }
+
+
     }
 }

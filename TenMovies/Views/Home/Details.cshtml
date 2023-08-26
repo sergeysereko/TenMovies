@@ -4,9 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<h1>Подробно о фильме</h1>
 <div>
-    <h4>Movie</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -48,7 +47,7 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index class="links">Вернуться на главную</a>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="links">Перейти к редактированию</a> |
+    <a asp-action="Index" class="links">Вернуться на главную</a>
 </div>
 
