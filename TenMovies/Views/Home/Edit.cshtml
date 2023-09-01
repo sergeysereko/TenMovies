@@ -38,8 +38,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label">Описание</label>
-                <textarea asp-for="Description" class="form-control"></textarea>
-                @* <input asp-for="Description" class="form-control" /> *@
+                <textarea asp-for="Description" class="form-control"></textarea>          
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <br />
@@ -53,5 +52,9 @@
 <div>
     <a asp-action="Index" class="links">Вернуться на главную</a>
 </div>
-
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
 

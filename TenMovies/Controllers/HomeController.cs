@@ -2,6 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using TenMovies.Models;
+using System.Linq;
+using System.Threading.Tasks;
+using System;
 
 
 namespace TenMovies
@@ -41,8 +44,8 @@ namespace TenMovies
 
 
         [HttpPost]
-        /*[ValidateAntiForgeryToken]  Не понял как это можно реализовать??*/
-        public async Task<IActionResult> CreateMovie(IFormFile Poster,[Bind("Id,Name,Director,Genre,Year,Poster,Description")] Movie movie)
+        [ValidateAntiForgeryToken]  
+        public async Task<IActionResult> Create(IFormFile Poster,[Bind("Id,Name,Director,Genre,Year,Poster,Description")] Movie movie)
         {
             if (Poster != null)
             {
@@ -52,11 +55,11 @@ namespace TenMovies
                 {
                     await Poster.CopyToAsync(fileStream); // копируем файл в поток
                 }
-                movie.Poster = "~" + path;
+                
 
-
-                if (movie != null)
+                if (ModelState.IsValid)
                 {
+                    movie.Poster = "~" + path;
                     db.Add(movie);
                     await db.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
@@ -178,6 +181,19 @@ namespace TenMovies
             }
 
             return View(movie);
+        }
+
+
+
+        [AcceptVerbs("Get", "Post")]
+        public IActionResult CheckYear(int year)
+        {
+            int currentYear = DateTime.Now.Year;
+            if (year < 1895 || year > currentYear)
+            {
+                return Json(false);
+            }
+            return Json(true);
         }
 
 

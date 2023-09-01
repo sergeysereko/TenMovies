@@ -9,27 +9,27 @@
 <div class="row">
     <div class="col-md-4">
         
-        <form asp-action="CreateMovie" asp-controller="Home" enctype="multipart/form-data">
+        <form asp-action="Create" asp-controller="Home" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label">Название</label>
                 <input asp-for="Name" class="form-control" />
-               @*  <span asp-validation-for="Name" class="text-danger"></span> *@
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Director" class="control-label">Режисер</label>
                 <input asp-for="Director" class="form-control" />
-                @* <span asp-validation-for="Director" class="text-danger"></span> *@
+                <span asp-validation-for="Director" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Genre" class="control-label">Жанр</label>
                 <input asp-for="Genre" class="form-control" />
-                @* <span asp-validation-for="Genre" class="text-danger"></span> *@
+                <span asp-validation-for="Genre" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Year" class="control-label">Год</label>
                 <input asp-for="Year" class="form-control" />
-                @* <span asp-validation-for="Year" class="text-danger"></span> *@
+                <span asp-validation-for="Year" class="text-danger"></span>
             </div>
             <br />
             <div class="form-group">
@@ -38,9 +38,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label">Описание</label>
-                <textarea asp-for="Description" class="form-control"></textarea>
-               @*  <input asp-for="Description" class="form-control" /> *@
-                @*<span asp-validation-for="Description" class="text-danger"></span>*@
+                <textarea asp-for="Description" class="form-control"></textarea>          
+                <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <br />
             <div class="form-group">
@@ -53,3 +52,8 @@
 <div>
     <a asp-action="Index" class="links">Вернуться на Главную</a>
 </div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
